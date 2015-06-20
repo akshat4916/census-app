@@ -1,0 +1,45 @@
+Census Visualisation App
+========================================================
+author: AKSHAT BHARGAVA
+date: 20/06/2015
+font-family: 'Risque'
+
+
+Introduction
+========================================================
+transition:rotate
+* Census-vis application is a Shiny app to show the demographic representation of people living in US.
+* We use choropleth maps to create plots.
+* `helpers.R` is an R script that can help you make [choropleth maps](http://en.wikipedia.org/wiki/Choropleth_map)
+* In our case, `helpers.R` will create `percent_map`, a function designed to map the data in `counties.rds`. You can    download `helpers.R` [here](http://shiny.rstudio.com/tutorial/lesson5/census-app/helpers.R).
+
+Counties.rds
+========================================================
+transition:concave
+transition-speed:slow
+* `counties.rds` is a dataset of demographic data for each county in the United States, collected with the UScensus2010 R package. You can download it [here](http://shiny.rstudio.com/tutorial/lesson5/census-app/data/counties.rds).
+* The dataset in `counties.rds` contains-
+  + the name of each county in the US
+  + the total population of the county
+  + the percent of residents in the county who are white, black, hispanic, or asian
+
+counties.rds continued...
+====
+transition:fade
+transition-speed:slow
+`counties.rds` top lines using `head` function
+```{r,echo=FALSE}
+head(readRDS("~/akshat/practice/R/census-app/data/counties.rds"))
+```
+percent_map
+========================================================
+transition:zoom
+transition-speed:slow
+The `percent_map` function in `helpers.R` takes five arguments:
+
+1. `var` - a column vector from the `counties.rds` dataset
+2. `color` - any character string you see in the output of colors()
+3. `legend.title` - A character string to use as the title of the plot’s legend
+4. `max` - A parameter for controlling shade range (defaults to 100)
+5. `min` - A parameter for controlling shade range (defaults to 0)
+
